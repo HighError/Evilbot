@@ -6,6 +6,7 @@ const {
   Collection,
   ActivityType
 } = require('discord.js');
+const keepAlive = require('./server');
 
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
@@ -31,6 +32,8 @@ client.on('interactionCreate', interaction => {
 
   command.execute(interaction, client);
 });
+
+keepAlive();
 
 client.login(process.env.BOT_TOKEN).then(() => {
   loadEvents(client);
