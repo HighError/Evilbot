@@ -1,0 +1,25 @@
+{
+  "name": "evilbot",
+  "version": "3.0.0",
+  "description": "Discord bot for Eviloma server",
+  "main": "index.js",
+  "repository": "https://github.com/HighError/Evilbot",
+  "author": "HighError",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "lint": "eslint ./ --ext .js"
+  },
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord.js": "^14.7.1",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.4"
+  }
+}
