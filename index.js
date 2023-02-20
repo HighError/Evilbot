@@ -46,6 +46,10 @@ client.distube = new DisTube(client, {
   plugins: [new SpotifyPlugin(), new YtDlpPlugin({ update: true })]
 });
 
+process.on('unhandledRejection', error => {
+  console.error(error);
+});
+
 module.exports = client;
 
 keepAlive();

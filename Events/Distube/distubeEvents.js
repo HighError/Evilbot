@@ -11,16 +11,17 @@ const status = queue =>
         : 'This Song'
       : 'Off'
   }\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``;
+
 client.distube
   .on('playSong', (queue, song) =>
     queue.textChannel.send({
       embeds: [
         new EmbedBuilder()
-          .setColor('Green')
+          .setColor('0x5620c0')
           .setDescription(
-            `🎶 | Playing \`${song.name}\` - \`${
+            `🎶 | Відтворення \`${song.name}\` - \`${
               song.formattedDuration
-            }\`\nRequested by: ${song.user}\n${status(queue)}`
+            }\`\nНа запит: ${song.user}\n${status(queue)}`
           )
       ]
     })
@@ -29,9 +30,9 @@ client.distube
     queue.textChannel.send({
       embeds: [
         new EmbedBuilder()
-          .setColor('Green')
+          .setColor('0x5620c0')
           .setDescription(
-            `🎶 | Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+            `🎶 | ${song.user} додав у чергу ${song.name} - \`${song.formattedDuration}\``
           )
       ]
     })
@@ -40,18 +41,18 @@ client.distube
     queue.textChannel.send({
       embeds: [
         new EmbedBuilder()
-          .setColor('Green')
+          .setColor('0x5620c0')
           .setDescription(
-            `🎶 | Added \`${playlist.name}\` playlist (${
+            `🎶 | Додано список відтворення \`${playlist.name}\` (${
               playlist.songs.length
-            } songs) to queue\n${status(queue)}`
+            } пісень) до черги\n${status(queue)}`
           )
       ]
     })
   )
   .on('error', (channel, e) => {
     if (channel)
-      channel.send(`⛔ | An error encountered: ${e.toString().slice(0, 1974)}`);
+      channel.send(`⛔ | Сталася помилка: ${e.toString().slice(0, 1974)}`);
     else console.error(e);
   })
   .on('empty', channel =>
@@ -59,7 +60,7 @@ client.distube
       embeds: [
         new EmbedBuilder()
           .setColor('Red')
-          .setDescription('⛔ |Voice channel is empty! Leaving the channel...')
+          .setDescription('⛔ | Голосовий канал порожній! Залишаю канал...')
       ]
     })
   )
@@ -68,7 +69,7 @@ client.distube
       embeds: [
         new EmbedBuilder()
           .setColor('Red')
-          .setDescription('`⛔ | No result found for `${query}`!`')
+          .setDescription('`⛔ | Не знайдено результатів для `${query}`!`')
       ]
     })
   )
@@ -76,8 +77,8 @@ client.distube
     queue.textChannel.send({
       embeds: [
         new EmbedBuilder()
-          .setColor('Green')
-          .setDescription('🏁 | Queue finished!')
+          .setColor('0x5620c0')
+          .setDescription('🏁 | Черга завершена!')
       ]
     })
   );
