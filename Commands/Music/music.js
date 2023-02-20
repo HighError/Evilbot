@@ -83,11 +83,15 @@ module.exports = {
             textChannel: channel,
             member: member
           });
-          return interaction.reply({ content: '🎶 Запит отримано.' });
+          return interaction.reply({
+            content: '🎶 Запит отримано.',
+            ephemeral: true
+          });
         case 'volume':
           client.distube.setVolume(voiceChannel, volume);
           return interaction.reply({
-            content: `🔊 Гучність змінена на ${volume}%.`
+            content: `🔊 Гучність змінена на ${volume}%.`,
+            ephemeral: true
           });
         case 'options': {
           const queue = await client.distube.getQueue(voiceChannel);
@@ -132,7 +136,6 @@ module.exports = {
                   }\``
               )}`;
               embed.setColor(0x5620c0).setDescription(data);
-              console.log(embed);
               return interaction.reply({ embeds: [embed], ephemeral: true });
             }
             default:

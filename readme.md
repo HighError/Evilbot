@@ -12,6 +12,8 @@ To run this project, you will need to add the following environment variables to
 
 `BOT_TOKEN` - Discord bot token
 
+`YOUTUBE_COOKIE` - Youtube cookie for nsfw
+
 `GLOBAL_CHANNEL_ID` - Global channel ID
 
 `MEMBER_ROLE` - Default member role ID

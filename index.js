@@ -42,6 +42,7 @@ client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   leaveOnFinish: false,
   emitAddSongWhenCreatingQueue: false,
+  youtubeCookie: process.env.YOUTUBE_COOKIE,
   plugins: [new SpotifyPlugin(), new YtDlpPlugin({ update: true })]
 });
 
