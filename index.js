@@ -8,14 +8,19 @@ const {
 } = require('discord.js');
 const keepAlive = require('./server');
 
-const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
+const { Guilds, GuildMembers, GuildMessages, GuildVoiceStates } =
+  GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
+
+const { DisTube } = require('distube');
+const { SpotifyPlugin } = require('@distube/spotify');
+const { YtDlpPlugin } = require('@distube/yt-dlp');
 
 const { loadEvents } = require('./Handlers/eventHandler');
 const { loadCommands } = require('./Handlers/commandHandler');
 
 const client = new Client({
-  intents: [Guilds, GuildMembers, GuildMessages],
+  intents: [Guilds, GuildMembers, GuildMessages, GuildVoiceStates],
   partials: [User, Message, GuildMember, ThreadMember]
 });
 
@@ -32,6 +37,15 @@ client.on('interactionCreate', interaction => {
 
   command.execute(interaction, client);
 });
+
+client.distube = new DisTube(client, {
+  emitNewSongOnly: true,
+  leaveOnFinish: false,
+  emitAddSongWhenCreatingQueue: false,
+  plugins: [new SpotifyPlugin(), new YtDlpPlugin({ update: true })]
+});
+
+module.exports = client;
 
 keepAlive();
 

@@ -11,10 +11,18 @@
     "lint": "eslint ./ --ext .js"
   },
   "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.14.0",
+    "@distube/spotify": "^1.5.1",
+    "@distube/yt-dlp": "latest",
     "ascii-table": "^0.0.9",
     "discord.js": "^14.7.1",
+    "distube": "^4.0.4",
     "express": "^4.18.2",
-    "fs": "^0.0.1-security"
+    "ffmpeg-static": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "libsodium-wrappers": "^0.7.11",
+    "yt-search": "^2.10.4"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
