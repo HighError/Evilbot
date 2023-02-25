@@ -2,15 +2,15 @@ const client = require('../../index.js');
 const { EmbedBuilder } = require('discord.js');
 
 const status = queue =>
-  `Volume: \`${queue.volume}%\` | Filter: \`${
+  `Гучність: \`${queue.volume}%\` | Фільтр: \`${
     queue.filters.names.join(', ') || 'Off'
-  }\` | Loop: \`${
+  }\` | Зациклення: \`${
     queue.repeatMode
       ? queue.repeatMode === 2
-        ? 'All Queue'
-        : 'This Song'
-      : 'Off'
-  }\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``;
+        ? 'Весь список'
+        : 'Пісня'
+      : 'Вимкнено'
+  }\` | Авто: \`${queue.autoplay ? 'Увімкнено' : 'Вимкнено'}\``;
 
 client.distube
   .on('playSong', (queue, song) =>
